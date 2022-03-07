@@ -27,11 +27,14 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("TAG",""+inputText.getText().toString());
+                //crates a thread
                 ct = new ConnectionThread(Integer.parseInt(inputText.getText().toString()));
+
+                //starts the thread
                 ct.start();
 
                 try {
+                    //waits until the thread is finished
                     ct.join();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
 
 }
