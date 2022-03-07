@@ -27,8 +27,12 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String input = inputText.getText().toString();
+
+                if(input.length() != 0){
+
                 //crates a thread
-                ct = new ConnectionThread(Integer.parseInt(inputText.getText().toString()));
+                ct = new ConnectionThread(Integer.parseInt(input));
 
                 //starts the thread
                 ct.start();
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
                 outputText.setText(ct.getData());
 
+                }
             }
         });
     }
